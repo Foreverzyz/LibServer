@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="rssi" location="50,50" size="170,70">
+    <action name="rssiaction" location="17,25" size="150,41">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="login" location="350,50" size="171,91">
+    <action name="useraction" location="17,25" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="login.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="index.jsp" path="WEB-INF/jsp/index.jsp" location="50,200" size="150,55" />
+  <webResource name="login.jsp" path="login.jsp" location="350,200" size="150,55" />
+</Struts2Diagram>
+

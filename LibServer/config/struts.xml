@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="sruts.devMode" value="true"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.multipart.maxSize" value="10485760"></constant>      
+    <package name="rssi" namespace="/" extends="json-default">				
+	    <action name="rssiaction" class="rssiAction" method="collectRssi">
+	    	<result type="json"/>
+	    </action> 
+	    <action name="setSelectOption" class="rssiAction" method="SelectOption">
+	    	<result type="json"/>
+	    </action>   	             	
+    </package>
+    
+    
+    <package name="login" namespace="/" extends="struts-default">   
+    	<action name="useraction" class="userAction" method="validateLogin">
+	    	<result name="success">WEB-INF/jsp/adminIndex.jsp</result>
+	    	<result name="error">login.jsp</result>
+	    </action>
+	    <action name="add_jump_logic" class="userAction" method="check_add_jump">
+	    	<result name="success">WEB-INF/jsp/addUser.jsp</result>
+	    	<result name="error">WEB-INF/jsp/adminIndex.jsp</result>
+	    </action> 
+    </package>
+</struts>
