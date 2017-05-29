@@ -20,10 +20,8 @@ import Catalano.Math.Matrix;
 /**
  * An example to get bounds of series symbol.
  */
-public class SymbolBoundsExample {
+public class AllRssiDataAnalasy {
 
-    private static final double[] ySeries1 = { 0.26, 0.25, 0.29, 0.31, 0.32 };
-    private static final double[] ySeries2 = { 0.32, 0.31, 0.27, 0.28, 0.26 };
     private static String path1 = "E:\\RSSIdata\\all_testdata.txt";
     
     /**
@@ -41,7 +39,7 @@ public class SymbolBoundsExample {
     	
         Display display = new Display();
         Shell shell = new Shell(display);
-        shell.setText("室内全图采样信号");
+        shell.setText("室内全局采样信号");
         shell.setSize(1000, 1000);
         shell.setLayout(new FillLayout());
 
@@ -68,7 +66,7 @@ public class SymbolBoundsExample {
         // create a chart
         final Chart chart = new Chart(parent, SWT.NONE);
        
-        chart.getTitle().setText("室内全图WIFI信号变化分布");
+        chart.getTitle().setText("室内全局WIFI信号变化分布");
         chart.getAxisSet().getXAxis(0).getTitle().setText("时间变化/秒");
         chart.getAxisSet().getYAxis(0).getTitle().setText("WIFI信号强度值/dbm");
         // create line series
@@ -100,7 +98,7 @@ public class SymbolBoundsExample {
         ILineSeries series6 = (ILineSeries) chart.getSeriesSet().createSeries(
                 SeriesType.LINE, "ap_6");
         series6.setYSeries(Matrix.getColumn(chardata, 5));
-        series6.setLineColor(Display.getDefault()
+        series6.setLineColor(Display.getDefault() 
                         .getSystemColor(SWT.COLOR_DARK_RED));
         
         ILineSeries series7 = (ILineSeries) chart.getSeriesSet().createSeries(
@@ -286,8 +284,7 @@ public class SymbolBoundsExample {
                                 + series.getYSeries()[index]);
             }
         });
-        
-        
+             
         return chart;
     }
 }
