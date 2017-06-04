@@ -19,12 +19,28 @@
     
     
     <package name="login" namespace="/" extends="struts-default">   
-    	<action name="useraction" class="userAction" method="validateLogin">
+    	<action name="login" class="userAction" method="validateLogin">
 	    	<result name="success">WEB-INF/jsp/adminIndex.jsp</result>
 	    	<result name="error">login.jsp</result>
 	    </action>
-	    <action name="add_jump_logic" class="userAction" method="check_add_jump">
-	    	<result name="success">WEB-INF/jsp/addUser.jsp</result>
+	    
+	    <action name="logout" class="userAction" method="validateLogout">
+	    	<result name="success">login.jsp</result>
+	    	<result name="error">WEB-INF/jsp/adminIndex.jsp</result>
+	    </action> 
+	    
+	    <action name="add_jump_logic" class="jumlogicAction" method="check_add_jump">
+	    	<result name="success">WEB-INF/jsp/addBook.jsp</result>
+	    	<result name="error">WEB-INF/jsp/adminIndex.jsp</result>
+	    </action> 
+	    
+	    <action name="check_bookmanage_jump" class="jumlogicAction" method="check_bookmanage_jump">
+	    	<result name="success">WEB-INF/jsp/bookManage.jsp</result>
+	    	<result name="error">WEB-INF/jsp/adminIndex.jsp</result>
+	    </action> 
+	    
+	    <action name="check_searchbook_jump" class="jumlogicAction" method="check_searchbook_jump">
+	    	<result name="success">WEB-INF/jsp/searchBook.jsp</result>
 	    	<result name="error">WEB-INF/jsp/adminIndex.jsp</result>
 	    </action> 
     </package>

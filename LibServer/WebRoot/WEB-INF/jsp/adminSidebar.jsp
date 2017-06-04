@@ -43,11 +43,11 @@
 				<a href="add_jump_logic.action"><font color=#747474>添加图书</font> </a>
 			</p>
 			<p style="text-indent: 20px;">
-				<a href="browseUserPaging.action"><font color=#747474 size=1>图书列表</font>
+				<a href="check_bookmanage_jump.action"><font color=#747474 size=1>图书列表</font>
 				</a>
 			</p>
 			<p style="text-indent: 20px;">
-				<a href="searchUser.jsp"><font color=#747474>图书查询</font> </a>
+				<a href="check_searchbook_jump.action"><font color=#747474>图书查询</font> </a>
 			</p>
 		</div>
 	</div>

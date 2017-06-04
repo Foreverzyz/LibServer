@@ -13,6 +13,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.swtchart.Chart;
 import org.swtchart.ILineSeries;
 import org.swtchart.ISeries;
+import org.swtchart.LineStyle;
 import org.swtchart.ISeries.SeriesType;
 
 import Catalano.Math.Matrix;
@@ -59,51 +60,28 @@ public class VectorAnalasy {
      */
     static public Chart createChart(Composite parent, double[][] chartdata) {
     	
-    	double[]data = Matrix.getColumn(chartdata, 0);
-    	for(double n : data){
+    	double[] xdata = Matrix.getColumn(chartdata, 0);
+    	double[] ydata = StatisticsUtils.GaosiCaculate(xdata);
+    	System.out.println(xdata.length);
+    	System.out.println(ydata.length);
+    	for(double n : xdata){
     		System.out.println(n);
     	}
     	
         // create a chart
         final Chart chart = new Chart(parent, SWT.NONE);
         chart.getTitle().setText("AP信号正态分布图");
-        chart.getAxisSet().getXAxis(0).getTitle().setText("WIFI信号强度变化");
-        chart.getAxisSet().getYAxis(0).getTitle().setText("高斯分布");
+        chart.getAxisSet().getXAxis(0).getTitle().setText("高斯分布");
+        chart.getAxisSet().getYAxis(0).getTitle().setText("WIFI信号强度变化");
         // create line series
         ILineSeries series1 = (ILineSeries) chart.getSeriesSet().createSeries(
                 SeriesType.LINE, "ap_1");
-        series1.setYSeries(StatisticsUtils.GaosiCaculate(data));
-        series1.setXSeries(Matrix.getColumn(chartdata, 0));
-        
-       
+        series1.setLineStyle(LineStyle.NONE);
+        series1.setXSeries(xdata);
+        series1.setYSeries(ydata);
         
         // adjust the axis range
         chart.getAxisSet().adjustRange();
-
-        // add mouse move listener to open tooltip on data point
-        chart.getPlotArea().addMouseMoveListener(new MouseMoveListener() {
-            public void mouseMove(MouseEvent e) {
-                for (ISeries series : chart.getSeriesSet().getSeries()) {
-                    for (int i = 0; i < series.getYSeries().length; i++) {
-                        Point p = series.getPixelCoordinates(i);
-                        double distance = Math.sqrt(Math.pow(e.x - p.x, 2)
-                                + Math.pow(e.y - p.y, 2));
-
-                        if (distance < ((ILineSeries) series).getSymbolSize()) {
-                            setToolTipText(series, i);
-                            return;
-                        }
-                    }
-                }
-                chart.getPlotArea().setToolTipText(null);
-            }
-
-            private void setToolTipText(ISeries series, int index) {
-                chart.getPlotArea().setToolTipText(
-                        "Series: " + series.getId() + "\nValue: "
-                                + series.getYSeries()[index]);
-            }
-        });
 
         return chart;
     }

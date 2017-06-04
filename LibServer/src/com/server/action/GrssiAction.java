@@ -21,6 +21,4 @@ public class GrssiAction extends ActionSupport{
 	public void setRssi(Rssi rssi) {
 		this.rssi = rssi;
 	}
-	
-	
 }

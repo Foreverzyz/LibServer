@@ -55,9 +55,6 @@ public class StatisticsUtils {
 		for(int i = 0; i < x.length; i++){
 			data[i] = (1/(sdata * Math.sqrt(2 * Math.PI)) * Math.exp(-Math.pow((x[i]-avg), 2)/(2 * Math.pow(sdata, 2))));
 		}
-		for(double xda : data){
-			System.out.println(xda);
-		}
 		return data;
 	}
 }

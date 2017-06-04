@@ -37,4 +37,53 @@
 			<ref bean="userService"/>
 		</property>
 	</bean>
+	
+	<bean id="jumlogicAction" class="com.server.action.JumpLogicAction">
+		
+	</bean>
+	
+	<bean id="bookinfoDao" class="com.server.dao.impl.BookInfoDaoImpl" parent="baseDao"></bean>
+	
+	<bean id="bookinfoService" class="com.server.service.impl.BookInfoServiceImpl">
+		<property name="bookInfoDAO">
+			<ref bean="bookinfoDao"/>
+		</property>
+	</bean>
+	
+	<bean id="modelinfoDao" class="com.server.dao.impl.ModelInfoDaoImpl" parent="baseDao"></bean>
+	
+	<bean id="modelinfoService" class="com.server.service.impl.ModelInfoServiceImpl">
+		<property name="modelInfoDAO">
+			<ref bean="modelinfoDao"/>
+		</property>
+	</bean>
+	
+	<bean id="modeldataDao" class="com.server.dao.impl.ModelDataDaoImpl" parent="baseDao"></bean>
+	
+	<bean id="modeldataService" class="com.server.service.impl.ModelDataServiceImpl">
+		<property name="modelDataDAO">
+			<ref bean="modeldataDao"/>
+		</property>
+	</bean>
+	
+	
+	<!-- Action -->
+	<bean id="modelinfoAction" class="com.server.action.ModelInfoAction">
+		<property name="modelInfoService">
+			<ref bean="modelinfoService"/>
+		</property>
+	</bean>
+	
+	<bean id="modeldataAction" class="com.server.action.ModelDataAction">
+		<property name="modelDataService">
+			<ref bean="modeldataService"/>
+		</property>
+	</bean>
+	
+	<bean id="bookinfoAction" class="com.server.action.BookInfoAction">
+		<property name="bookInfoService">
+			<ref bean="bookinfoService"/>
+		</property>
+	</bean>
+	
 </beans>

@@ -27,7 +27,7 @@
 		<div class="signin-head">
 			<img src="img/test/head_120.png" alt="" class="img-circle">
 		</div>
-		<form action="useraction.action" method="post" class="form-signin" role="form">
+		<form action="login.action" method="post" class="form-signin" role="form">
 			<input type="text" class="form-control" placeholder="用户名" required autofocus name="username"/> 
 			<input type="password" class="form-control" placeholder="密码" required name="password" />
 			<button class="btn btn-lg btn-warning btn-block" type="submit">登录</button>

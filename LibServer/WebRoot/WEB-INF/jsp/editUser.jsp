@@ -72,7 +72,7 @@ body {
 	</div>
 	<div class="all">
 		<p align="left">
-			您现在的位置： <a href="adminIndex.jsp">用户管理</a> > <b>修改会员信息</b>
+			您现在的位置： <a href="adminIndex.jsp">图书管理</a> > <b>修改图书信息</b>
 		</p>
 	</div>
 	<div class="all">
@@ -84,12 +84,12 @@ body {
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<div class="panel-title">
-							<font size=2>修改会员信息</font>
+							<font size=2>修改图书信息</font>
 						</div>
 					</div>
 					<div class="panel-body">
 						<form name="update" method="post" action="saveUpdateUser.action">
-						<font color=red>*&nbsp;</font>会员信息<font color=grey> - - -
+						<font color=red>*&nbsp;</font>图书信息<font color=grey> - - -
 								- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 								- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 								- - - - - - - - - - - - - - - - -  </font>								

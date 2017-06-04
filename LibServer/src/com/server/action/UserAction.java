@@ -46,12 +46,14 @@ public class UserAction extends ActionSupport{
 			return ERROR;
 		}
 	}
-	
-	public String check_add_jump(){
-		if(ActionContext.getContext().getSession().get("username").equals("admin")){
+	public String validateLogout(){
+		if (userService.validateLogin(username, password)) {
+			ActionContext.getContext().getSession().remove("username");
+			ActionContext.getContext().getSession().remove("password");
 			return SUCCESS;
 		}else {
 			return ERROR;
 		}
 	}
+	
 }

@@ -120,13 +120,14 @@ h1 {
 					<li style="font-size: 23px;">图书馆导航后台服务管理平台</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="adminIndex.jsp"> <font color="white">
-								<span class="glyphicon glyphicon-user"></span> <span>${sessionScope.admin.username}</span>
-						</font>
-					</a></li>
-					<li><a href="adminlogout.action"> <span
-							class="glyphicon glyphicon-log-out"></span> 退出系统
-					</a></li>
+					<li style="margin-top:15px">
+						<span class="glyphicon glyphicon-user"></span> <span>${sessionScope.username}</span>
+					</li>
+					<li>
+						<a href="logout.action"> 
+							<span class="glyphicon glyphicon-log-out"></span> 退出系统
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
